@@ -16,12 +16,14 @@ efeito1(){
     agua -= 10;
     producao += 15;
     ambiente += 5;
+    dinheiro += 10;
 },
 
 efeito2(){
     agua -= 30;
     producao += 20;
     ambiente -= 15;
+    dinheiro -= 5;
 }
 },
 
@@ -33,11 +35,13 @@ opcao2: "Plantar sempre a mesma cultura",
 efeito1(){
     ambiente += 10;
     producao += 10;
+    dinheiro += 5;
 },
 
 efeito2(){
     ambiente -= 20;
     producao += 15;
+    dinheiro -= 5;
 }
 },
 
@@ -48,11 +52,13 @@ opcao2: "Desmatar para ampliar a área",
 
 efeito1(){
     ambiente += 15;
+    dinheiro += 5;
 },
 
 efeito2(){
     ambiente -= 30;
     producao += 20;
+    dinheiro -= 5;
 }
 }
 
@@ -82,6 +88,17 @@ function atualizarBarras(){
     document.getElementById("ambiente").style.width = ambiente + "%";
     document.getElementById("producao").style.width = producao + "%";
     document.getElementById("dinheiro").style.width = dinheiro + "%";
+    document.getElementById("textoAgua").innerHTML =
+"💧 Água: " + agua;
+
+document.getElementById("textoAmbiente").innerHTML =
+"🌳 Meio Ambiente: " + ambiente;
+
+document.getElementById("textoProducao").innerHTML =
+"🌾 Produção: " + producao;
+
+document.getElementById("textoDinheiro").innerHTML =
+"💰 Dinheiro: " + dinheiro;
 }
 
 function carregarEvento(){
