@@ -4,7 +4,7 @@ let producao = 100;
 let dinheiro = 100;
 
 let rodada = 0;
-
+let historico = [];
 const eventos = [
 
 {
@@ -153,7 +153,11 @@ function escolher(opcao){
     }else{
         eventos[rodada].efeito2();
     }
-
+if(opcao === 1){
+    historico.push(eventos[rodada].opcao1);
+}else{
+    historico.push(eventos[rodada].opcao2);
+}
     rodada++;
 
 eventoAleatorio();
@@ -219,7 +223,12 @@ function finalizar(){
         resultado = "Crise Ambiental";
         medalha = "⚠️";
     }
+let listaHistorico = "";
 
+for(let escolha of historico){
+
+    listaHistorico += `<p>✅ ${escolha}</p>`;
+}
     document.getElementById("evento").innerHTML = `
 <div class="resultadoFinal">
 
@@ -236,7 +245,11 @@ function finalizar(){
 <p>💰 Dinheiro: ${dinheiro}</p>
 
 <br>
+<h3>📜 Histórico da Simulação</h3>
 
+${listaHistorico}
+
+<br>
 <button onclick="location.reload()">
 Nova Simulação
 </button>
