@@ -122,13 +122,42 @@ function escolher(opcao){
 
     rodada++;
 
-    atualizarBarras();
+eventoAleatorio();
+
+atualizarBarras();
 
     if(rodada < eventos.length){
         carregarEvento();
     }else{
         finalizar();
     }
+}function eventoAleatorio(){
+
+    const sorteio = Math.floor(Math.random() * 3);
+
+    if(sorteio === 0){
+
+        alert("☀️ Seca! A fazenda perdeu água.");
+
+        agua -= 15;
+    }
+
+    else if(sorteio === 1){
+
+        alert("🌧️ Chuva Favorável! A produção aumentou.");
+
+        producao += 10;
+    }
+
+    else{
+
+        alert("🐛 Pragas atacaram a plantação!");
+
+        producao -= 10;
+        dinheiro -= 5;
+    }
+
+    atualizarBarras();
 }
 
 function finalizar(){
