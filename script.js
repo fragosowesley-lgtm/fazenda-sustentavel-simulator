@@ -221,19 +221,25 @@ function finalizar(){
     }
 
     document.getElementById("evento").innerHTML = `
-        <h2>${medalha} ${resultado}</h2>
+<div class="resultadoFinal">
 
-        <br>
+<h2>${medalha} ${resultado}</h2>
 
-        <p>💧 Água: ${agua}</p>
-        <p>🌳 Meio Ambiente: ${ambiente}</p>
-        <p>🌾 Produção: ${producao}</p>
-        <p>💰 Dinheiro: ${dinheiro}</p>
+<hr>
 
-        <br>
+<p>💧 Água: ${agua}</p>
 
-        <button onclick="location.reload()">
-            Nova Simulação
-        </button>
-    `;
-}
+<p>🌳 Meio Ambiente: ${ambiente}</p>
+
+<p>🌾 Produção: ${producao}</p>
+
+<p>💰 Dinheiro: ${dinheiro}</p>
+
+<br>
+
+<button onclick="location.reload()">
+Nova Simulação
+</button>
+
+</div>
+`;
