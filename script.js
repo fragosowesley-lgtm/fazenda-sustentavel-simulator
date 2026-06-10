@@ -61,7 +61,41 @@ efeito2(){
     dinheiro -= 5;
 }
 }
+,
+{
+pergunta: "☀️ Como deseja obter energia para a fazenda?",
 
+opcao1: "Instalar painéis solares",
+
+opcao2: "Utilizar apenas geradores antigos",
+
+efeito1(){
+    ambiente += 15;
+    dinheiro += 20;
+},
+
+efeito2(){
+    ambiente -= 15;
+    dinheiro -= 10;
+}
+},
+
+{
+pergunta: "🚁 Como monitorar a plantação?",
+
+opcao1: "Utilizar drones e sensores",
+
+opcao2: "Fazer inspeção sem tecnologia",
+
+efeito1(){
+    producao += 20;
+    dinheiro += 15;
+},
+
+efeito2(){
+    producao -= 10;
+}
+}
 ];
 
 const telaInicial = document.getElementById("telaInicial");
@@ -163,23 +197,38 @@ atualizarBarras();
 function finalizar(){
 
     let resultado = "";
+    let medalha = "";
 
     if(ambiente >= 100 && producao >= 120){
-        resultado = "🏆 Fazenda Modelo Sustentável";
-    }
-    else if(ambiente >= 80){
-        resultado = "🌱 Produtor Consciente";
-    }
-    else{
-        resultado = "⚠️ Crise Ambiental";
+
+        resultado = "Fazenda Modelo Sustentável";
+        medalha = "🥇";
+
+    }else if(ambiente >= 80){
+
+        resultado = "Produtor Consciente";
+        medalha = "🥈";
+
+    }else if(ambiente >= 60){
+
+        resultado = "Fazenda em Desenvolvimento";
+        medalha = "🥉";
+
+    }else{
+
+        resultado = "Crise Ambiental";
+        medalha = "⚠️";
     }
 
     document.getElementById("evento").innerHTML = `
-        <h2>${resultado}</h2>
-        <p>Água: ${agua}</p>
-        <p>Meio Ambiente: ${ambiente}</p>
-        <p>Produção: ${producao}</p>
-        <p>Dinheiro: ${dinheiro}</p>
+        <h2>${medalha} ${resultado}</h2>
+
+        <br>
+
+        <p>💧 Água: ${agua}</p>
+        <p>🌳 Meio Ambiente: ${ambiente}</p>
+        <p>🌾 Produção: ${producao}</p>
+        <p>💰 Dinheiro: ${dinheiro}</p>
 
         <br>
 
